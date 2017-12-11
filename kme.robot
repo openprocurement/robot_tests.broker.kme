@@ -209,18 +209,6 @@ Login
     Input text    id=items-address_streetaddress    ${item.deliveryAddress.streetAddress}
     Click Element    id = btn-item-add
 
-Додати предмет закупівлі
-    [Arguments]  ${username}  ${tender_uaid}  ${item}
-    kme.Пошук тендера по ідентифікатору  ${username}  ${tender_uaid}
-    Click Element  id=lot-update-btn
-    Run Keyword And Ignore Error  Click Element    id = btn-item-add
-
-Видалити предмет закупівлі
-    [Arguments]  ${username}  ${tender_uaid}  ${item_id}
-    kme.Пошук тендера по ідентифікатору  ${username}  ${tender_uaid}
-    Click Element  id=lot-update-btn
-    Run Keyword And Ignore Error  Click Element    id = btn-item-add
-
 Завантажити документ
     [Arguments]    @{ARGUMENTS}
     [Documentation]    ${ARGUMENTS[0]} == username
