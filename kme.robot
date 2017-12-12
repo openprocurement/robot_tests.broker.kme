@@ -629,7 +629,8 @@ Login
     sleep    2
     Click Element    id = bid-create-btn
     Sleep    2s
-    Run Keyword If    ${bid['data'].qualified} != ${False}    Click Element   id=bids-oferta
+    Run Keyword If    ${bid['data'].qualified} != ${False}    Click Element    id=cabinet
+    Click Element   id=bids-oferta
     ${amount}=    Convert To String    ${bid.data.value.amount}
     Input Text    id=bids-value_amount    ${amount}
     Sleep    2
