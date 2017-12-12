@@ -826,9 +826,11 @@ ConvToStr And Input Text
     Sleep    1
     Wait Until Page Contains Element    id = upload-protocol-btn
     Click Element    id = upload-protocol-btn
+    Wait Until Page Contains Element    id=bid-upload-protocol
     Choose File    id = files-file    ${testFilePath}
     Sleep    1
     Click Element    id=bid-upload-protocol
+    Wait Until Page Contains Element    id=confirm-payment-btn
 
 Підтвердити постачальника
     [Arguments]  ${username}  ${tender_uaid}  ${award_num}
@@ -856,7 +858,7 @@ ConvToStr And Input Text
     kme.Пошук тендера по ідентифікатору    ${username}  ${tender_uaid}
     Wait Until Page Contains Element    name = winner
     Click Element    name = winner
-    Click Element    id = confirm-protocol-btn
+    Click Element    id = confirm-payment-btn
 
 Підтвердити підписання контракту
     [Arguments]    ${username}    ${tender_uaid}    ${contract_num}
