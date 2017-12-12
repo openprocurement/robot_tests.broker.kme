@@ -558,7 +558,7 @@ Login
   [Arguments]  ${username}  ${tender_uaid}  ${item_id}  ${question}
   kme.Пошук тендера по ідентифікатору  ${username}  ${tender_uaid}
   Sleep    2
-  Click Element     id = question[${item_id}].item
+  Click Element     id = ${item_id}item
   Sleep  3
   Input text          id=question-title                 ${question.data.title}
   Input text          id=question-description          ${question.data.description}
@@ -629,7 +629,7 @@ Login
     sleep    2
     Click Element    id = bid-create-btn
     Sleep    2s
-    Click Element    id = bids-oferta
+    Run Keyword If    ${bid['data'].qualified} != ${False}    Click Element   id=bids-oferta
     ${amount}=    Convert To String    ${bid.data.value.amount}
     Input Text    id=bids-value_amount    ${amount}
     Sleep    2
@@ -786,7 +786,7 @@ ConvToStr And Input Text
     ...      ${ARGUMENTS[2]} = cancellation_reason
     ...      ${ARGUMENTS[3]} = doc_path
     ...      ${ARGUMENTS[4]} = description
-    Go To    https://proumstrade.com.ua/lots/index
+    Click Element    id=cabinet
     Sleep   2
     Input Text    name = LotSearch[auctionID]    ${ARGUMENTS[1]}
     Click Element    name = LotSearch[name]
