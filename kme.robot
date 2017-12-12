@@ -365,6 +365,7 @@ Login
 
 Отримати інформацію про tenderAttempts
     ${return_value}=    Get Text    id=auction-tenderAttempts
+    ${return_value}=    Convert To Integer    ${return_value}
     [Return]    ${return_value}
 
 Отримати інформацію про tender.data.auctionUrl
