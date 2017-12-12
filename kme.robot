@@ -832,7 +832,7 @@ ConvToStr And Input Text
     Choose File    id = files-file    ${testFilePath}
     Sleep    1
     Click Element    id=bid-upload-protocol
-    Wait Until Page Contains Element    id=confirm-payment-btn
+    Wait Until Page Contains Element    id=auction-statusName
 
 Підтвердити постачальника
     [Arguments]  ${username}  ${tender_uaid}  ${award_num}
@@ -853,7 +853,7 @@ ConvToStr And Input Text
     Choose File    id = files-file    ${filepath}
     Sleep    1
     Click Element    id = upload-contract-btn
-    Reload Page
+    Wait Until Page Contains Element    id=сontract-signed-btn
 
 Підтвердити наявність протоколу аукціону
     [Arguments]  ${username}  ${tender_uaid}  ${award_index}
