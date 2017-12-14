@@ -845,20 +845,20 @@ ConvToStr And Input Text
 Завантажити угоду до тендера
     [Arguments]    ${username}    ${tender_uaid}    ${contract_num}    ${filepath}
     kme.Пошук тендера по ідентифікатору    ${username}    ${tender_uaid}
-    Wait Until Page Contains Element    name = winner
-    Click Element    name = winner
+    Wait Until Page Contains Element    id = bids[0].link
+    Click Element    id = bids[0].link
     Wait Until Page Contains Element    id = upload-contract-link
     Click Element    id = upload-contract-link
     Choose File    id = files-file    ${filepath}
     Sleep    1
     Click Element    id = upload-contract-btn
-    Wait Until Page Contains Element    id=сontract-signed-btn
+    Sleep    10
 
 Підтвердити наявність протоколу аукціону
     [Arguments]  ${username}  ${tender_uaid}  ${award_index}
     kme.Пошук тендера по ідентифікатору    ${username}  ${tender_uaid}
-    Wait Until Page Contains Element    name = winner
-    Click Element    name = winner
+    Wait Until Page Contains Element    id=bids[0].link
+    Click Element    id=bids[0].link
     Wait Until Page Contains Element    id = confirm-payment-btn
 
 Підтвердити підписання контракту
@@ -866,8 +866,8 @@ ConvToStr And Input Text
     ${file_path}    ${file_title}    ${file_content}=    create_fake_doc
     kme.Пошук тендера по ідентифікатору    ${username}  ${tender_uaid}
     Sleep    1
-    Wait Until Page Contains Element    name = winner
-    Click Element    name = winner
+    Wait Until Page Contains Element    id = bids[0].link
+    Click Element    id = bids[0].link
     Wait Until Page Contains Element    id = contract-signed-btn
     Click Element    id = contract-signed-btn
     Click Element    id = contract-signed-submit
