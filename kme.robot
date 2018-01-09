@@ -834,8 +834,8 @@ Login
 Підтвердити наявність протоколу аукціону
     [Arguments]  ${username}  ${tender_uaid}  ${award_index}
     kme.Пошук тендера по ідентифікатору    ${username}  ${tender_uaid}
-    Wait Until Page Contains Element    id=bids[1].link
-    Click Element    id=bids[1].link
+    Wait Until Page Contains Element    id=bids[${award_index}].link
+    Click Element    id=bids[${award_index}].link
     Wait Until Page Contains Element    id = confirm-payment-btn
 
 Підтвердити підписання контракту
